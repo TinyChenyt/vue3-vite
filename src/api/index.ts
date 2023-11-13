@@ -1,7 +1,7 @@
-import { loginApi } from "./login";
-import { menuApi } from "./menu";
+import menu from "./modules/menu";
+import login from "./modules/login";
 
-export const api = {
-   ...loginApi,
-   ...menuApi
+export default {
+   menu,
+   login
 }

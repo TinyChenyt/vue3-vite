@@ -1,0 +1,8 @@
+:root {
+    /* 背景颜色 */
+    --base-bg-color: #f1f2f3;
+    /* 主题色 */
+    --brand-color: #007aff;
+    --minor-brand-color: #eaf6fe;
+    --dark-brand-color: #333333;
+}
