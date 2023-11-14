@@ -2,7 +2,7 @@
  * @Author: TinyChen 2454046178@qq.com
  * @Date: 2023-11-13 14:33:46
  * @LastEditors: TinyChen 2454046178@qq.com
- * @LastEditTime: 2023-11-13 16:50:58
+ * @LastEditTime: 2023-11-14 17:24:18
  * @FilePath: \vue3-vite\src\view\login\components\loginForm.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -15,12 +15,12 @@ const useLogin = UseLogin();
 interface RuleForm {
     username: string,
     password: string,
-    code: string
+    yzcode: string
 }
 const form = reactive<RuleForm>({
     username: '',
     password: '',
-    code: ''
+    yzcode: ''
 })
 const rules = reactive<FormRules<RuleForm>>({
     username: [
@@ -29,7 +29,7 @@ const rules = reactive<FormRules<RuleForm>>({
     password: [
         { required: true, message: '请输入密码', trigger: 'blur' }
     ],
-    code: [
+    yzcode: [
         { required: true, message: '请输入验证码', trigger: 'blur' }
     ]
 })
@@ -69,8 +69,8 @@ onMounted(() => {
                     <template #prepend>密码</template>
                 </el-input>
             </el-form-item>
-            <el-form-item prop="code" size="large">
-                <el-input v-model="form.code" placeholder>
+            <el-form-item prop="yzcode" size="large">
+                <el-input v-model="form.yzcode" placeholder>
                     <template #prepend>验证码</template>
                     <template #append style="padding: 0 !important;">
                         <img :src="codeImg" alt="" @click="getCodeImg">

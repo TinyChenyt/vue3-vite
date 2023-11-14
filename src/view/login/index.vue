@@ -8,10 +8,13 @@
 -->
 <script setup lang="ts">
 import LoginForm from './components/loginForm.vue';
-
-const login = (data: any) => {
-    console.log(data);
+import UseLogin from '@/hook/useLogin';
+const useLogin = UseLogin();
+const login = async(data: any) => {
+    // console.log(data);
     // 正式的请求
+    const res = await useLogin.login(data);
+    console.log(res,"登录");
 }
 </script>
 

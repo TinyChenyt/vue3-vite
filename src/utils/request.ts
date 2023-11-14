@@ -2,7 +2,7 @@
  * @Author: TinyChen 2454046178@qq.com
  * @Date: 2023-11-13 09:42:34
  * @LastEditors: TinyChen 2454046178@qq.com
- * @LastEditTime: 2023-11-13 16:10:31
+ * @LastEditTime: 2023-11-14 17:26:53
  * @FilePath: \vue3-vite\src\utils\request.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -194,14 +194,39 @@ const getImg = (url: string, config?: AxiosRequestConfig<any>) => {
         method: 'get',
         url,
         responseType: 'blob',
-    }, config)
+    }, config);
 
     return baseRequest(newConfig);
+}
+
+const post = (url: string, data: object, config?: AxiosRequestConfig<any>) => {
+    const newConfig = Object.assign({}, {
+        method: 'post',
+        url,
+        data
+    },config);
+
+    return baseRequest(newConfig);
+}
+
+const formPost = (url: string, data: object, config?: AxiosRequestConfig<any>) => {
+    const newConfig = Object.assign({}, {
+        method: 'post',
+        url,
+        data,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        }
+    },config);
+
+    return baseRequest(newConfig)
 }
 
 export default {
     axiosInstance,
     get,
     getImg,
+    post,
+    formPost,
     cancelAllRequest
 }
