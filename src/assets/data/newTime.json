@@ -1,10 +1,27 @@
 [
     {
-        "positiveSideOneMakeAPoint": 210000,
-        "negativeSideFourParadox": 90000
+        "id": "positiveSideOneMakeAPoint",
+        "title": "正方一辩立论陈词",
+        "time": 210000
     },
     {
-        "negativeSideOneMakeAPoint": 210000,
-        "positiveSideFourParadox": 90000
+        "id": "negativeSideFourParadox",
+        "title": "反方四辩·质询·正方一辩",
+        "time": 90000
+    },
+    {
+        "id": "negativeSideOneMakeAPoint",
+        "title": "反方一辩立论陈词",
+        "time": 210000
+    },
+    {
+        "id": "positiveSideFourParadox",
+        "title": "正方四辩·质询·反方一辩",
+        "time": 90000
+    },
+    {
+        "id": "freeDebate",
+        "title": "自由辩",
+        "time": 240000
     }
 ]

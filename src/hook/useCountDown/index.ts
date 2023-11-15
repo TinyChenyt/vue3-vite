@@ -7,7 +7,6 @@ export default (options: { time: number; format: string; onFinish: () => void })
     let counting = false
     // 是否暂停
     let stoping = false
-
     // 剩余时间
     const remain = ref(options.time)
     // 当前计时的长度
@@ -18,7 +17,7 @@ export default (options: { time: number; format: string; onFinish: () => void })
 
     // 格式化输出的日期时间
     const currentTime = computed(() => formatTime(options.format, parseTime(remain.value)))
-
+    const remainTime = computed(() => remain.value)
     // 获取当前剩余时间
     const getCurrentRemain = () => Math.max(endTime.value - Date.now(), 0)
 
@@ -58,7 +57,7 @@ export default (options: { time: number; format: string; onFinish: () => void })
 
         // 正在倒计时标志为 true
         counting = true
-        // 启动计时
+        // 暂停结束
         stoping = false;
 
         // 设置结束时间
@@ -78,17 +77,19 @@ export default (options: { time: number; format: string; onFinish: () => void })
     const reset = () => {
         stop();
         setTimeout(() => {
+            console.log(totalTime.value);
             remain.value = totalTime.value
             endTime.value = Date.now() + remain.value;
             setRemain(getCurrentRemain());
-        }, 10);
+        }, 50);
     }
 
     return {
         currentTime,
         start,
         stop,
-        reset
+        reset,
+        remainTime
     }
 
 }
